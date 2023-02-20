@@ -4,11 +4,7 @@ import Router from "./src/utils/router";
 import WelcomeScreen from "./src/WelcomeScreen";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Router />
-    </View>
-  );
+  return <Router />;
 }
 
 const styles = StyleSheet.create({
