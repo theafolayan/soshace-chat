@@ -7,7 +7,6 @@ export default function ChatScreen() {
 
   const database = getDatabase();
   const chatRef = ref(database, `chats`);
-  console.log(auth.currentUser.uid);
   useEffect(() => {
     const listen = onValue(chatRef, (querySnapshot) => {
       const unserialized = JSON.stringify(querySnapshot);
