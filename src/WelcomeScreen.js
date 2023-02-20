@@ -1,27 +1,24 @@
-import { Button, StyleSheet, Text, View } from "react-native";
-import React from "react";
-import { getAuth, signInAnonymously } from "firebase/auth";
+import {
+  ActivityIndicator,
+  Button,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
+import React, { useState } from "react";
+import { signInAnonymously } from "firebase/auth";
 import { auth } from "../firebaseConfig";
 
-// const auth = getAuth();
-// signInAnonymously(auth)
-//   .then(() => {
-//     // Signed in..
-//   })
-//   .catch((error) => {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//     // ...
-//   });
-
 export default function WelcomeScreen() {
-  //login user anonymously with firebase
-
+  const [loading, setLoading] = useState(false);
   const handleLogin = async () => {
     try {
+      setLoading(true);
       await signInAnonymously(auth);
     } catch (error) {
       console.log(error.message);
+    } finally {
+      setLoading(false);
     }
   };
   return (
@@ -31,8 +28,9 @@ export default function WelcomeScreen() {
         marginVertical: 100,
       }}
     >
-      <Text>Welcome to Chat App</Text>
+      <Text>Welcome to Anonymous Chat App</Text>
       <Button title="Login to chat" onPress={handleLogin} />
+      {loading && <ActivityIndicator size="large" />}
     </View>
   );
 }
