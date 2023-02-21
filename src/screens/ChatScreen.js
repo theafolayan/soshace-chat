@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useEffect } from "react";
 import { GiftedChat } from "react-native-gifted-chat";
 import { ref, onValue, set, push, getDatabase } from "firebase/database";
-import { auth } from "../firebaseConfig";
+import { auth } from "../../firebaseConfig";
 export default function ChatScreen() {
   const [messages, setMessages] = useState([]);
 

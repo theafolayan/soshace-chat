@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { signInAnonymously } from "firebase/auth";
-import { auth } from "../firebaseConfig";
+import { auth } from "../../firebaseConfig";
 
 export default function WelcomeScreen() {
   const [loading, setLoading] = useState(false);
@@ -25,12 +25,13 @@ export default function WelcomeScreen() {
     <View
       style={{
         justifyContent: "center",
+        alignItems: "center",
         marginVertical: 100,
       }}
     >
       <Text>Welcome to Anonymous Chat App</Text>
-      <Button title="Login to chat" onPress={handleLogin} />
-      {loading && <ActivityIndicator size="large" />}
+      <Button title="Login to Room" onPress={handleLogin} />
+      {loading && <ActivityIndicator size="large" color="green" />}
     </View>
   );
 }

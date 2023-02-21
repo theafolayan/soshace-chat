@@ -2,8 +2,8 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import WelcomeScreen from "../WelcomeScreen";
-import ChatScreen from "../ChatScreen";
+import WelcomeScreen from "./screens/WelcomeScreen";
+import ChatScreen from "./screens/ChatScreen";
 import { useAuthentication } from "./useAuth";
 
 const Stack = createStackNavigator();
@@ -31,5 +31,5 @@ function UserStack() {
 export default function Router() {
   const { user } = useAuthentication();
 
-  return user ? <UserStack /> : <AuthStack />;
+  return !user ? <AuthStack /> : <UserStack />;
 }

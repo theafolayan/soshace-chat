@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import Router from "./src/utils/router";
-import WelcomeScreen from "./src/WelcomeScreen";
+import Router from "./src/router";
+import WelcomeScreen from "./src/screens/WelcomeScreen";
 
 export default function App() {
   return <Router />;
